@@ -1,14 +1,4 @@
 def app(environ, start_response):
-	raw_uri = str(environ.get('RAW_URI'))
-	raw_uri = raw_uri[1:]
-	params = raw_uri.split('&')
-	
-	data = ''
-	for param in params:
-		data += param + '\r\n'
-	
-	start_response("200 OK", [
-	  ("Content-Type", "text/plain"),
-	  ("Content-Length", str(len(data)))
-	])
-	return iter([data])
+	start_response('200 OK', [('Content-Type', 'text/plain')])
+	qs = environ['QUERY_STRING'].split('&')
+	return [item + '\n' for item in qs]
