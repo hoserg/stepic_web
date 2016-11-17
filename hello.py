@@ -1,6 +1,6 @@
 def app(environ, start_response):
 	raw_uri = str(environ.get('RAW_URI'))
-	raw_uri = raw_uri[2:]
+	raw_uri = raw_uri[1:]
 	params = raw_uri.split('&')
 	
 	data = ''
