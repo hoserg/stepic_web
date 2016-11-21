@@ -5,7 +5,7 @@ from ask import views
 #admin.autodiscover()
 
 urlpatterns = [
-    url(r'^$', 'views.empty'),
+    url(r'^$', 'views.proba'),
     url(r'^login/$', 'views.proba'),
     url(r'^signup/$', 'views.proba'),
     url(r'^question/(\d+)$', 'views.proba'),
