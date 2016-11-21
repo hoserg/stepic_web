@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 
+    url(r'^/$', qa.views.test),
     url(r'^/login/$', qa.views.test),
     url(r'^/signup/$', qa.views.test),
     url(r'^/question/$', include(qa.urls)),
