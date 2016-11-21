@@ -3,17 +3,12 @@ from django.conf.urls import patterns, include, url
 #from django.contrib import admin
 #admin.autodiscover()
 
-urlpatterns = patterns('qa.views',
-    # Examples:
-    # url(r'^$', 'ask.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-    #url(r'^admin/', include(admin.site.urls)),
-
-    url(r'^$', 'test'),
-    url(r'^login/$', 'test'),
-    url(r'^signup/$', 'test'),
+urlpatterns = [
+    url(r'^$', 'views.empty'),
+    url(r'^login/$', 'views.proba'),
+    url(r'^signup/$', 'views.proba'),
     url(r'^question/$', include(qa.urls)),
-    url(r'^ask/$', 'test'),
-    url(r'^popular/$', 'test'),
-    url(r'^new/$', 'test'),
-)
+    url(r'^ask/$', 'views.proba'),
+    url(r'^popular/$', 'views.proba'),
+    url(r'^new/$', 'views.proba'),
+]
