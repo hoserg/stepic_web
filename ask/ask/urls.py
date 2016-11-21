@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from ask import views
+from ask import views, qa
 #from django.ask import qa
 
 #from django.contrib import admin
