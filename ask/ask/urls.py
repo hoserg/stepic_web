@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^$', 'views.empty'),
     url(r'^login/$', 'views.proba'),
     url(r'^signup/$', 'views.proba'),
-    url(r'^question/$', include(qa.urls)),
+    url(r'^question/(\d+)$', 'views.proba'),
     url(r'^ask/$', 'views.proba'),
     url(r'^popular/$', 'views.proba'),
     url(r'^new/$', 'views.proba'),
