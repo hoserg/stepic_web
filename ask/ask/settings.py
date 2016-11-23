@@ -60,7 +60,7 @@ WSGI_APPLICATION = 'ask.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'step_base',
+        'NAME': 'dbstep',
         'USER': 'hoserg',
         'PASSWORD': 'hhh',
         'HOST': 'localhost',
