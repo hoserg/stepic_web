@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'qa'
 urlpatterns = [
-    url(r'^', 'views.newqa'),
+    url(r'^$', 'views.proba'),
     url(r'^login/$', 'views.proba'),
     url(r'^signup/$', 'views.proba'),
     url(r'^question/(<qid>\d+)/$', 'views.question'),
