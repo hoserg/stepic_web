@@ -3,7 +3,7 @@
 <body>
 <p>New Questions
 {% for q in questions %}
-  <p>{{q.text}}
+  <a href="question/{{q.id}}/">{{q.title}}</a>
 {% endfor %}
 
 </body>
