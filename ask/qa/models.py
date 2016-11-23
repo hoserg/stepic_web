@@ -16,10 +16,8 @@ class Question(models.Model):
     author = models.ForeignKey(User)  
     likes = models.ManyToManyField(User, related_name='question_like_user')
     
-    qobjects = models.Manager()
-    objects = QuestionManager()
-    #new = QuestionManager(new)
-    #popular = QuestionManager(popular)
+    #qobjects = models.Manager()
+    #objects = QuestionManager()
 
     def __unicode__(self):
         return self.title
