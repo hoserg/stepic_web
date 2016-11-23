@@ -17,7 +17,7 @@ def question(request, qid):
 def newqa(request):
     qmain = Question.objects.all().order_by('-id')
     
-    paginator = Paginator(qmain, 30)
+    paginator = Paginator(qmain, 10)
     page = request.GET.get('page')
     try:
         qmain = paginator.page(page)
@@ -33,7 +33,7 @@ def newqa(request):
 def popular(request):
     qmain = Question.objects.all().order_by('-rating')
     
-    paginator = Paginator(qmain, 30)
+    paginator = Paginator(qmain, 10)
     page = request.GET.get('page')
     try:
         qmain = paginator.page(page)
