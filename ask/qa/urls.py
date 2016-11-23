@@ -3,5 +3,5 @@ from . import views
 
 app_name = 'qa'
 urlpatterns = [
-    url(r'^(\d+)/$', 'views.question'),
+    url(r'^(<qid>\d+)/$', 'views.question'),
 ]
