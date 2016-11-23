@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from ask.qa import views
+from qa import views
 
 #app_name = 'qa'
 urlpatterns = [
