@@ -1,6 +1,7 @@
 from django.template import loader, Context, RequestContext
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from models import Question, User
 
 def proba(request):
@@ -15,6 +16,16 @@ def question(request, qid):
 
 def newqa(request):
     qmain = Question.objects.all().order_by('-id')
+    
+    paginator = Paginator(qmain, 30)
+    page = request.GET.get('page')
+    try:
+        qmain = paginator.page(page)
+    except PageNotAnInteger:
+        qmain = paginator.page(1)
+    except EmptyPage:
+        qmain = paginator.page(paginator.num_pages)
+    
     t = loader.get_template("new.html")
     c = Context({'questions':qmain, 'request':request})
     return HttpResponse(t.render(c))
