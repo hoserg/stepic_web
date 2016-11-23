@@ -16,8 +16,8 @@ class Question(models.Model):
     likes = models.ManyToManyField(User, related_name='question_like_user')
     
     objects = models.Manager()
-    new = QuestionManager.new()
-    popular = QuestionManager.popular()
+    new = QuestionManager(new)
+    popular = QuestionManager(popular)
 
     def __unicode__(self):
         return self.title
