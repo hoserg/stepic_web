@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
-from ask import views
-#from django.ask import qa
+from ask import views, qa
+#from ask import qa
 
 #from django.contrib import admin
 #admin.autodiscover()
