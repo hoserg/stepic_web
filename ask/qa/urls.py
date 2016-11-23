@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from . import views
 
-app_name = 'qa'
+#app_name = 'qa'
 urlpatterns = [
     url(r'^$', 'views.proba'),
     url(r'^login/$', 'views.proba'),
