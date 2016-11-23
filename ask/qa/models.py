@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 
 class QuestionManager(models.Manager):
     def new(self):
-        return 1
+        #return connection.cursor().execute("SELECT * FROM qa_question q ORDER BY q.added_at DESC").fetchall()
+        return self.objects.all().order_by('-added_at')
     def popular(self):
-        return 1
+        return self.objects.all().order_by('-rating')
 
 class Question(models.Model):
     title = models.CharField(max_length=64)
@@ -15,6 +16,7 @@ class Question(models.Model):
     author = models.ForeignKey(User)  
     likes = models.ManyToManyField(User, related_name='question_like_user')
     
+    qobjects = models.Manager()
     objects = QuestionManager()
     #new = QuestionManager(new)
     #popular = QuestionManager(popular)
