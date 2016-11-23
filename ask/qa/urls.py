@@ -3,5 +3,11 @@ from . import views
 
 app_name = 'qa'
 urlpatterns = [
-    url(r'^(<qid>\d+)/$', 'views.question'),
+    url(r'^', 'views.newqa'),
+    url(r'^login/$', 'views.proba'),
+    url(r'^signup/$', 'views.proba'),
+    url(r'^question/(<qid>\d+)/$', 'views.question'),
+    url(r'^ask/$', 'views.proba'),
+    url(r'^popular/$', 'views.popular'),
+    url(r'^new/$', 'views.proba'),       
 ]
