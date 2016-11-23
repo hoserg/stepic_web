@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
+from .models import *
 
 def question(request, qid):
     qmain = Question.objects.get(id=qid)
