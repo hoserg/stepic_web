@@ -29,11 +29,20 @@ def newqa(request):
     t = loader.get_template("new.html")
     c = Context({'questions':qmain, 'request':request})
     return HttpResponse(t.render(c))
-    #return HttpResponse('QQQ')
 
 def popular(request):
     qmain = Question.objects.all().order_by('-rating')
+    
+    paginator = Paginator(qmain, 30)
+    page = request.GET.get('page')
+    try:
+        qmain = paginator.page(page)
+    except PageNotAnInteger:
+        qmain = paginator.page(1)
+    except EmptyPage:
+        qmain = paginator.page(paginator.num_pages)
+    
     t = loader.get_template("popular.html")
     c = Context({'questions':qmain, 'request':request})
     return HttpResponse(t.render(c))
-    #return HttpResponse('QQQ')
+   
