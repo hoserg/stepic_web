@@ -23,7 +23,7 @@ class Question(models.Model):
         return self.title
 
 class Answer(models.Model):
-    text = models.CharField(max_length=255)
+    text = models.TextField()
     added_at = models.DateField(auto_now_add=True)
     question = models.ForeignKey(Question, related_name='answer_question')  
     author = models.ForeignKey(User, related_name='answer_user')
