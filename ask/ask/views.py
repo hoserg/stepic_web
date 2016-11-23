@@ -3,3 +3,9 @@ from django.http import HttpRequest, HttpResponse
 
 def proba(request):
     return HttpResponse('OK')
+
+def newqa(request):
+    qmain = Question.objects.all()
+    t = loader.get_template("new.htm")
+    c = Context({'questions':qmain, 'request':request})
+    return HttpResponse(t.render(c))
