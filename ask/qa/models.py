@@ -15,7 +15,7 @@ class Question(models.Model):
     author = models.ForeignKey(User)  
     likes = models.ManyToManyField(User, related_name='question_like_user')
     
-    #objects = models.Manager()
+    objects = QuestionManager()
     #new = QuestionManager(new)
     #popular = QuestionManager(popular)
 
