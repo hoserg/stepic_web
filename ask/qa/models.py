@@ -1,12 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class QuestionManager(models.Manager):
-    def new(self):
-        #return connection.cursor().execute("SELECT * FROM qa_question q ORDER BY q.added_at DESC").fetchall()
-        return self.objects.all().order_by('-added_at')
-    def popular(self):
-        return self.objects.all().order_by('-rating')
+#class QuestionManager(models.Manager):
+#    def new(self):
+#        return self.objects.all().order_by('-added_at')
+#    def popular(self):
+#        return self.objects.all().order_by('-rating')
 
 class Question(models.Model):
     title = models.CharField(max_length=64)
@@ -28,5 +27,5 @@ class Question(models.Model):
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateField(auto_now_add=True)
-    question = models.ForeignKey(Question, related_name='answer_question')  
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)  
     author = models.ForeignKey(User, related_name='answer_user')
