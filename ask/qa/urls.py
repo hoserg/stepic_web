@@ -1,13 +1,15 @@
 from django.conf.urls import patterns, include, url
-from qa import views
+#from qa import views
 
-#app_name = 'qa'
+from django.contrib import admin
+admin.autodiscover()
+
 urlpatterns = [
-    url(r'^$', 'views.proba'),
-    url(r'^login/$', 'views.proba'),
-    url(r'^signup/$', 'views.proba'),
-    url(r'^question/(<qid>\d+)/$', 'views.question'),
-    url(r'^ask/$', 'views.proba'),
-    url(r'^popular/$', 'views.popular'),
-    url(r'^new/$', 'views.proba'),       
+    url(r'^$', 'qa.views.proba'),
+    url(r'^login/$', 'qa.views.proba'),
+    url(r'^signup/$', 'qa.iews.proba'),
+    url(r'^question/(<qid>\d+)/$', 'qa.views.question'),
+    url(r'^ask/$', 'qa.views.proba'),
+    url(r'^popular/$', 'qa.views.popular'),
+    url(r'^new/$', 'qa.views.proba'),       
 ]
