@@ -3,10 +3,15 @@
 <body>
 <p>{{question.title}}
 <p>{{question.text}}
-<p>Answers
-{% for a in answers %}
-  <p>{{a.text}}
+<hr>
+
+<h3>Answers:</h3>
+<ul>
+{% for answer in answers %}
+  <li>{{ answer.text }}</li>
 {% endfor %}
+</ul>
+<hr>
 
 </body>
 </html>
