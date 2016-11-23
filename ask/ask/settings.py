@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'ask',
-    'qa',
+    'ask.qa',
 )
 
 MIDDLEWARE_CLASSES = (
