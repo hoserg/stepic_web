@@ -6,7 +6,7 @@ from ask import views
 #admin.autodiscover()
 
 urlpatterns = [
-    url(r'^$', 'views.proba'),
+    url(r'^$', 'views.newqa'),
     url(r'^login/$', 'views.proba'),
     url(r'^signup/$', 'views.proba'),
     url(r'^question/', include('qa.urls')),
