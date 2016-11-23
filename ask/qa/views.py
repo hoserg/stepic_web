@@ -1,17 +1,17 @@
 from django.template import loader, Context, RequestContext
 from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render, get_object_or_404
 from models import Question, User
 
 def proba(request):
     return HttpResponse('OK')
 
 def question(request, qid):
-    qmain = Question.objects.get(id=qid)
-    qanswer = Answer.objects.filter(question__id=qid)
-    t = loader.get_template("question.html")
-    c = Context({'question':qmain, 'answers':qanswer, 'request':request})
-    return HttpResponse(t.render(c))
-    #return HttpResponse('QQQ')
+    question = get_object_or_404(Question, id=id)
+    return render(request, 'question.html', {
+        'question': question,
+        'answers': question.answer_set.all()
+        })
 
 def newqa(request):
     qmain = Question.objects.all().order_by('-id')
