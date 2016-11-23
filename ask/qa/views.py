@@ -2,6 +2,9 @@ from django.template import loader, Context, RequestContext
 from django.http import HttpRequest, HttpResponse
 from .models import *
 
+def proba(request):
+    return HttpResponse('OK')
+
 def question(request, qid):
     #qmain = Question.objects.get(id=qid)
     #qanswer = Answer.objects.filter(question__id=qid)
