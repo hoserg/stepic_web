@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>{{question.title}}
+<p>{{question.text}}
+<p>Answers
+{% for a in answers %}
+  <p>{a.text}
+{% endfor %}
+
+</body>
+</html>
