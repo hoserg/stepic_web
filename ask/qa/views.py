@@ -1,6 +1,6 @@
 from django.template import loader, Context, RequestContext
 from django.http import HttpRequest, HttpResponse
-from qa.models import *
+from models import Question, User
 
 def proba(request):
     return HttpResponse('OK')
