@@ -6,6 +6,6 @@ def proba(request):
 
 def newqa(request):
     qmain = Question.objects.all()
-    t = loader.get_template("new.htm")
+    t = loader.get_template("new.html")
     c = Context({'questions':qmain, 'request':request})
     return HttpResponse(t.render(c))
