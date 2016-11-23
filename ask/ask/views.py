@@ -9,3 +9,9 @@ def newqa(request):
     t = loader.get_template("new.html")
     c = Context({'questions':qmain, 'request':request})
     return HttpResponse(t.render(c))
+
+def popular(request):
+    qmain = Question.objects.all()
+    t = loader.get_template("popular.html")
+    c = Context({'questions':qmain, 'request':request})
+    return HttpResponse(t.render(c))
