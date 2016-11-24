@@ -1,5 +1,5 @@
 from django.template import loader, Context, RequestContext
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from models import Question, User
@@ -46,3 +46,32 @@ def popular(request):
     c = Context({'questions':qmain, 'request':request})
     return HttpResponse(t.render(c))
    
+def ask(request):
+    if request.method == 'POST':
+        form = AskForm(request.POST)
+        if form.is_valid():
+            question = form.save()
+            question.author = request.user
+            question.save()
+            return HttpResponseRedirect('question/'+question.id+'/')        
+    else:
+        form = AskForm()
+        t = loader.get_template("askform.html")
+        c = Context({'form':form, 'request':request})
+        return HttpResponse(t.render(c))
+        
+def answer(request):
+    if request.method == 'POST':
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            question = form.save()
+            question.author = request.user
+            question.save()
+            return HttpResponseRedirect('question/'+question.id+'/')        
+    else:
+        form = AnswerForm()
+        t = loader.get_template("answerform.html")
+        c = Context({'form':form, 'request':request})
+        return HttpResponse(t.render(c))
+    
+        
