@@ -3,6 +3,7 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from models import Question, User
+from forms import AskForm, AnswerForm
 
 def proba(request):
     return HttpResponse('OK')
