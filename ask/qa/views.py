@@ -9,12 +9,18 @@ def proba(request):
     return HttpResponse('OK')
 
 def question(request, qid):
-    if request.method == "POST":
-        return HttpResponse('OK')
     question = get_object_or_404(Question, id=qid)
+    if request.method == "POST":
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            answer = form.save()
+            return HttpResponseRedirect(reverse('question', args=[question.id,])
+    else:
+        form = AnswerForm(initial={'question': question.id})
     return render(request, 'question.html', {
         'question': question,
-        'answers': question.answer_set.all()
+        'answers': question.answer_set.all(),
+        'form': form
         })
 
 def newqa(request):
@@ -56,7 +62,7 @@ def ask(request):
             question = form.save()
             #question.author = request.user
             #question.save()
-            url = question.get_url()
+            #url = question.get_url()
             return HttpResponseRedirect(reverse('question', args=[question.id,])  
     else:
         form = AskForm()
