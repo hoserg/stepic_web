@@ -60,7 +60,6 @@ def ask(request):
     else:
         form = AskForm()
         t = loader.get_template("askform.html")
-        #c = Context({'form':form, 'request':request})
         c = RequestContext(request, {'form':form})
         return HttpResponse(t.render(c))
         
@@ -75,7 +74,7 @@ def answer(request):
     else:
         form = AnswerForm()
         t = loader.get_template("answerform.html")
-        c = Context({'form':form, 'request':request})
+        c = RequestContext(request, {'form':form})
         return HttpResponse(t.render(c))
     
         
