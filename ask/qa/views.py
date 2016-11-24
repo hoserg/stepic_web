@@ -9,14 +9,16 @@ def proba(request):
     return HttpResponse('OK')
 
 def question(request, qid):
+    if request.method is 'POST':
+        return answer(request)
     question = get_object_or_404(Question, id=qid)
-    if request.method == "POST":
-        form = AnswerForm(request.POST)
-        if form.is_valid():
-            answer = form.save()
-            return HttpResponseRedirect(reverse('question', args=[question.id,])
-    else:
-        form = AnswerForm(initial={'question': question.id})
+    #if request.method == "POST":
+    #    form = AnswerForm(request.POST)
+    #    if form.is_valid():
+    #        answer = form.save()
+    #        return HttpResponseRedirect(reverse('question', args=[question.id,])
+    #else:
+    #    form = AnswerForm(initial={'question': question.id})
     return render(request, 'question.html', {
         'question': question,
         'answers': question.answer_set.all(),
