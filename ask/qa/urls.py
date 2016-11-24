@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^login/$', 'qa.views.proba'),
     url(r'^signup/$', 'qa.views.proba'),
     url(r'^question/(?P<qid>\d+)/', 'qa.views.question'),
-    url(r'^ask/$', 'qa.views.proba'),
+    url(r'^ask/$', 'qa.views.ask'),
     url(r'^popular/$', 'qa.views.popular'),
     url(r'^new/$', 'qa.views.proba'),       
 ]
