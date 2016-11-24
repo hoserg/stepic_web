@@ -64,10 +64,10 @@ def answer(request):
     if request.method == 'POST':
         form = AnswerForm(request.POST)
         if form.is_valid():
-            question = form.save()
-            question.author = request.user
-            question.save()
-            return HttpResponseRedirect('question/'+question.id+'/')        
+            answer = form.save()
+            answer.author = request.user
+            answer.save()
+            return HttpResponseRedirect('question/'+answer.question.id+'/')        
     else:
         form = AnswerForm()
         t = loader.get_template("answerform.html")
