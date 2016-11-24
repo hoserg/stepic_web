@@ -9,6 +9,8 @@ def proba(request):
     return HttpResponse('OK')
 
 def question(request, qid):
+    if request.method == "POST":
+        return HttpResponse('OK')
     question = get_object_or_404(Question, id=qid)
     return render(request, 'question.html', {
         'question': question,
