@@ -13,7 +13,7 @@ def question(request, qid):
         #return answer(request)
         #return HttpResponse('OK')
     question = get_object_or_404(Question, id=qid)
-    answer = AnswerForm({"question": question.id})
+    answer = AnswerForm(initial={'question': str(qid)})
     return render(request, 'question.html', {
         'question': question,
         'answers': question.answer_set.all(),
