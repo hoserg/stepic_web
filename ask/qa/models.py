@@ -21,11 +21,14 @@ class Question(models.Model):
     def __unicode__(self):
         return self.title
     
-    #def get_url(self):
-    #    return reverse('questions', kwargs={'id': self.id})
+    def get_url(self):
+        return reverse('question', kwargs={'id': self.id})
 
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateField(auto_now_add=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)  
     author = models.ForeignKey(User, related_name='answer_user')
+
+    def get_url(self):
+        return self.question.get_url()    
