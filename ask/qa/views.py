@@ -61,6 +61,8 @@ def ask(request):
             #question.save()
             #url = question.get_url()
             return HttpResponseRedirect(reverse('question', args=[question.id,])  
+        else:
+            return HttpResponse('OK')
     else:
         form = AskForm()
         t = loader.get_template("askform.html")
