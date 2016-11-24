@@ -10,7 +10,8 @@ def proba(request):
 
 def question(request, qid):
     if request.method is 'POST':
-        return answer(request)
+        #return answer(request)
+        return HttpResponse('OK')
     question = get_object_or_404(Question, id=qid)
     #if request.method == "POST":
     #    form = AnswerForm(request.POST)
