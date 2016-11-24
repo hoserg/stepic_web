@@ -3,8 +3,7 @@
 <body>
 
 <p>New Questions
-  <form method="post" action="/ask/" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
-    {% csrf_token %}
+  <form method="post" action="/ask/">{% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save</button>
   </form>
